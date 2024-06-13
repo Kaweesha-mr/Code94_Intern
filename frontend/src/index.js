@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-// 1. import `NextUIProvider` component
-import { NextUIProvider } from "@nextui-org/react";
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
@@ -15,9 +13,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <NextUIProvider>
-          <App />
-        </NextUIProvider>
+        <App />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

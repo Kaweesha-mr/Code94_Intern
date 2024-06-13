@@ -1,12 +1,27 @@
 
-import { ADD_RECIPE,DELETE_RECIPE,UPDATE_RECIPE } from "../Actions/recipeActions";
+import { ADD_RECIPE, DELETE_RECIPE, UPDATE_RECIPE } from "../Actions/recipeActions";
 
-const initialState = {
-    recipes: []
-}
+
+const initialState = [
+    {
+        id: 1,
+        title: 'Chicken Curry',
+        description: 'This is a chicken curry recipe'
+    },
+    {
+        id: 2,
+        title: 'Chicken Biryani',
+        description: 'This is a chicken biryani recipe'
+    },
+    {
+        id: 3,
+        title: 'Chicken Fry',
+        description: 'This is a chicken fry recipe'
+    }
+];
 
 const recipeReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case ADD_RECIPE:
             return {
                 ...state,
