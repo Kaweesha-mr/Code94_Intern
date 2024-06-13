@@ -1,6 +1,5 @@
 import { Button } from "@mui/material";
 import Textfield from "../components/TextField";
-import Selector from "../components/Selector";
 import { Link } from "react-router-dom";
 
 

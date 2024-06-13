@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AlarmIcon from '@mui/icons-material/Alarm';
+import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
@@ -11,6 +11,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Link } from 'react-router-dom';
+
 
 export default function CardComp(props) {
     const [open, setOpen] = React.useState(false);
@@ -22,6 +23,13 @@ export default function CardComp(props) {
     const handleClose = () => {
         setOpen(false);
     };
+
+
+    const handleDelete = () => {
+
+        props.onDelete();
+        handleClose();
+    }
     return (
 
         <Card sx={{ minWidth: 275 }}>
@@ -56,7 +64,7 @@ export default function CardComp(props) {
                         </DialogTitle>
                         <DialogActions>
                             <Button onClick={handleClose}>No</Button>
-                            <Button onClick={handleClose} autoFocus>
+                            <Button onClick={handleDelete} autoFocus>
                                 Yes
                             </Button>
                         </DialogActions>
@@ -66,7 +74,7 @@ export default function CardComp(props) {
 
                 <Link to={`/edit-recipe/${props.id}`}>
                     <IconButton aria-label="edit" color="primary">
-                        <AlarmIcon />
+                        <EditNoteOutlinedIcon />
                     </IconButton>
                 </Link>
             </CardActions>

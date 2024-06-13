@@ -12,7 +12,7 @@ export default function Textfield({...props}) {
       noValidate
       autoComplete="off"
     >
-      <TextField  multiline={props.multiline} maxRows={props.maxRows} className={("mt-3" + props.className)} id="outlined-basic" label={props.label} placeholder={props.placeholder} variant="outlined" />
+      <TextField value={props.value}  onChange={props.onChange} multiline={props.multiline} maxRows={props.maxRows} className={("mt-3" + props.className)} id="outlined-basic" label={props.label} placeholder={props.placeholder} variant="outlined" />
     </Box>
   );
 }

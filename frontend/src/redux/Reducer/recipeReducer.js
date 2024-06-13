@@ -1,6 +1,4 @@
-
 import { ADD_RECIPE, DELETE_RECIPE, UPDATE_RECIPE } from "../Actions/recipeActions";
-
 
 const initialState = [
     {
@@ -23,23 +21,19 @@ const initialState = [
 const recipeReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_RECIPE:
-            return {
+            return [
                 ...state,
-                recipes: [...state.recipes, action.payload]
-            }
+                action.payload
+            ];
         case DELETE_RECIPE:
-            return {
-                ...state,
-                recipes: state.recipes.filter(recipe => recipe.id !== action.payload)
-            }
+            return state.filter(recipe => recipe.id !== action.payload);
         case UPDATE_RECIPE:
-            return {
-                ...state,
-                recipes: state.recipes.map(recipe => recipe.id === action.payload.id ? action.payload : recipe)
-            }
+            return state.map(recipe =>
+                recipe.id === action.payload.id ? action.payload : recipe
+            );
         default:
-            return state
+            return state;
     }
-}
+};
 
 export default recipeReducer;

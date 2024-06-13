@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 //genrate simple ui to show ingredients and steps of recie and name of the recipe
 
 import React from 'react';
