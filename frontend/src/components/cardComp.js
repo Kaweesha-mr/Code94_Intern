@@ -23,12 +23,10 @@ export default function CardComp(props) {
         setOpen(false);
     };
     return (
-        <Link to={`/recipe-details/${props.id}`}>
-            <Card sx={{ minWidth: 275 }}>
+
+        <Card sx={{ minWidth: 275 }}>
+            <Link to={`/recipe-details/${props.id}`}>
                 <CardContent className='cursor-pointer'>
-                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                        {props.id}
-                    </Typography>
                     <Typography variant="h5" component="div">
                         {props.title}
                     </Typography>
@@ -39,39 +37,39 @@ export default function CardComp(props) {
                         {props.description}
                     </Typography>
                 </CardContent>
-                <CardActions>
+            </Link>
+            <CardActions>
 
-                    <React.Fragment>
-                        <IconButton aria-label="delete" color="warning" onClick={handleClickOpen}>
-                            <DeleteIcon />
-                        </IconButton>
+                <React.Fragment>
+                    <IconButton aria-label="delete" color="warning" onClick={handleClickOpen}>
+                        <DeleteIcon />
+                    </IconButton>
 
-                        <Dialog
-                            open={open}
-                            onClose={handleClose}
-                            aria-labelledby="alert-dialog-title"
-                            aria-describedby="alert-dialog-description"
-                        >
-                            <DialogTitle id="alert-dialog-title">
-                                {"Do you Want to Delete the Recipe?"}
-                            </DialogTitle>
-                            <DialogActions>
-                                <Button onClick={handleClose}>No</Button>
-                                <Button onClick={handleClose} autoFocus>
-                                    Yes
-                                </Button>
-                            </DialogActions>
-                        </Dialog>
-                    </React.Fragment>
+                    <Dialog
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            {"Do you Want to Delete the Recipe?"}
+                        </DialogTitle>
+                        <DialogActions>
+                            <Button onClick={handleClose}>No</Button>
+                            <Button onClick={handleClose} autoFocus>
+                                Yes
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
+                </React.Fragment>
 
 
-                    <Link to={`/edit-recipe/${props.id}`}>
-                        <IconButton aria-label="edit" color="primary">
-                            <AlarmIcon />
-                        </IconButton>
-                    </Link>
-                </CardActions>
-            </Card>
-        </Link>
+                <Link to={`/edit-recipe/${props.id}`}>
+                    <IconButton aria-label="edit" color="primary">
+                        <AlarmIcon />
+                    </IconButton>
+                </Link>
+            </CardActions>
+        </Card>
     );
 }
