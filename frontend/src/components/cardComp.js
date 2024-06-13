@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Link } from 'react-router-dom';
 
 export default function CardComp(props) {
     const [open, setOpen] = React.useState(false);
@@ -63,9 +64,11 @@ export default function CardComp(props) {
                 </React.Fragment>
 
 
-                <IconButton color="secondary" aria-label="add an alarm">
-                    <AlarmIcon />
-                </IconButton>
+                <Link to={`/edit-recipe/${props.id}`}>
+                    <IconButton aria-label="edit" color="primary">
+                        <AlarmIcon />
+                    </IconButton>
+                </Link>
             </CardActions>
         </Card>
     );
