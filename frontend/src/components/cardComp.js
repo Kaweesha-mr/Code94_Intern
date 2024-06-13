@@ -6,33 +6,63 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AlarmIcon from '@mui/icons-material/Alarm';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogTitle from '@mui/material/DialogTitle';
 
+export default function CardComp(props) {
+    const [open, setOpen] = React.useState(false);
 
-export default function CardComp() {
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
     return (
         <Card sx={{ minWidth: 275 }}>
-            <CardContent>
+            <CardContent className='cursor-pointer'>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    Recipe Id #21123
+                    {props.id}
                 </Typography>
                 <Typography variant="h5" component="div">
-                    Sri Lanka Chicken Curry
+                    {props.title}
                 </Typography>
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    Sri Lankan
+                    {props.category}
                 </Typography>
                 <Typography variant="body2">
-                    well meaning and kindly.
-                    well meaning and kindly.
-                    well meaning and kindly.
-                    well meaning and kindly.
-                    well meaning and kindly.
+                    {props.description}
                 </Typography>
             </CardContent>
             <CardActions>
-                <IconButton aria-label="delete" color="warning">
-                    <DeleteIcon />
-                </IconButton>
+
+                <React.Fragment>
+                    <IconButton aria-label="delete" color="warning" onClick={handleClickOpen}>
+                        <DeleteIcon />
+                    </IconButton>
+
+                    <Dialog
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            {"Do you Want to Delete the Recipe?"}
+                        </DialogTitle>
+                        <DialogActions>
+                            <Button onClick={handleClose}>No</Button>
+                            <Button onClick={handleClose} autoFocus>
+                                Yes
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
+                </React.Fragment>
+
+
                 <IconButton color="secondary" aria-label="add an alarm">
                     <AlarmIcon />
                 </IconButton>

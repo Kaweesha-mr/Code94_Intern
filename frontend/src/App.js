@@ -1,10 +1,9 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-
 import Home from './pages/Home';
-
 import ResponsiveAppBar from './components/NavBar';
+import AddRecipe from './pages/AddRecipe';
 
 function App() {
   return (
@@ -12,12 +11,9 @@ function App() {
       <ResponsiveAppBar />
       <Routes>
         <Route path="/" element={<Home />} />
-      </Routes>
-
-
-
-     
-    </div>
+        <Route path="/add-recipe" element={<AddRecipe />} />
+      </Routes>    
+      </div>
   );
 }
 
