@@ -11,12 +11,9 @@ export default function UpdateRecipeForm() {
             <h1 className="m-3 text-3xl font-bold text-center">Update Recipe</h1>
 
             <div className=" flex flex-col justify-items-center items-center">
-               
                 <Textfield label="Title" />
-                <Selector />
                 <Textfield multiline={true}  maxRows={4} label="Description" placeholder="Descibe Your Meal"/>
                 <Textfield multiline={true}  maxRows={7} label="Ingridients" placeholder="Enter Ingridients" />
-                <Textfield label="Time" />
             </div>
 
             <div className="flex justify-center gap-4">
