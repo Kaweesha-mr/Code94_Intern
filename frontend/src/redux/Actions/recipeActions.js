@@ -1,4 +1,4 @@
-import { deleteResp } from "../../service/recipeService";
+import { addResp, deleteResp } from "../../service/recipeService";
 
 export const ADD_RECIPE = 'ADD_RECIPE';
 export const DELETE_RECIPE = 'DELETE_RECIPE';
@@ -6,7 +6,9 @@ export const UPDATE_RECIPE = 'UPDATE_RECIPE';
 export const FETCH_RECIPES = 'FETCH_RECIPES';
 
 
-export const addRecipe = (recipe) => {
+export const addRecipe = (recipe) => async dispatch => {
+    await addResp(recipe);
+    console.log(recipe)
     return {
         type: ADD_RECIPE,
         payload: recipe

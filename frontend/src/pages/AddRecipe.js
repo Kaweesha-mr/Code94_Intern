@@ -21,7 +21,6 @@ export default function AddRecipe() {
 
     const handleAddRecipe = () => {
         const newRecipe = {
-            id: 1329018390128,  // You can use a better ID generation strategy
             title,
             description,
             ingredients,

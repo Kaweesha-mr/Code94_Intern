@@ -9,8 +9,8 @@ export const getRecipes = async () => {
     return response.data;
 };
 
-export const addRecipe = async (recipe) => {
-    const response = await axios.post(`${API_BASE_URL}/recipes`, recipe);
+export const addResp = async (recipe) => {
+    const response = await axios.post(`${API_BASE_URL}`, recipe);
     return response.data;
 };
 
