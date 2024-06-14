@@ -82,7 +82,7 @@ export default function UpdateRecipeForm() {
                     />
                 </form>
 
-                <div className="flex justify-center gap-4">
+                <div className="flex justify-center mt-3 gap-4">
                     <Link to="/">
                         <Button variant="contained" sx={{ borderRadius: 4 }} className="h-12 w-fit" color="info">
                             Cancel

@@ -45,7 +45,7 @@ export default function AddRecipe() {
 
                 </form>
 
-                <div className="flex justify-center gap-4">
+                <div className="flex justify-center gap-4 mt-3">
                     <Button variant="contained" sx={{ borderRadius: 4 }} className="h-12 w-fit" color="info" onClick={handleClear} >Clear</Button>
                     <Link to="/">
                         <Button sx={{ borderRadius: 4 }} variant="contained" className="h-12 w-fit" color="success" onClick={handleAddRecipe} >Add Recipe</Button>
