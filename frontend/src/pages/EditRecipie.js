@@ -66,67 +66,71 @@ export default function UpdateRecipeForm() {
         };
 
         dispatch(updateRecipe(id, updatedRecipe));
-       
+
         // Redirect to home page after updating recipe
         window.location.href = '/';
     };
 
     return (
-        <div className='md:flex m-4 md:m- md:absolute md:top-[25%] md:left-[40%] md:h-fit'>
-            <div className="flex flex-col bg-white p-5 rounded-xl ">
-                <h1 className="m-3 text-3xl font-bold text-center">Update Recipe</h1>
+        <div className="m-5 ">
 
-                <form className="flex flex-col gap-3 mt-3 justify-items-center items-center">
-                    <TextField
-                        name="title"
-                        label="Title"
-                        value={title}
-                        onChange={handleTitleChange}
-                        error={errors.title}
-                        helperText={errors.title ? "Title is required" : ""}
-                        fullWidth
-                    />
+            <div className='md:flex m-4 md:m- md:absolute md:top-[25%] md:left-[40%] md:h-fit'>
+                <div className="flex flex-col bg-white p-5 rounded-xl ">
+                    
+                    <h1 className="m-3 text-3xl font-bold text-center">Update Recipe</h1>
 
-                    <TextField
-                        name="description"
-                        multiline={true}
-                        maxRows={4}
-                        label="Description"
-                        value={description}
-                        onChange={handleDescriptionChange}
-                        error={errors.description}
-                        helperText={errors.description ? "Description is required" : ""}
-                        fullWidth
-                    />
+                    <form className="flex flex-col gap-3 mt-3 justify-items-center items-center">
+                        <TextField
+                            name="title"
+                            label="Title"
+                            value={title}
+                            onChange={handleTitleChange}
+                            error={errors.title}
+                            helperText={errors.title ? "Title is required" : ""}
+                            fullWidth
+                        />
 
-                    <TextField
-                        name="ingredients"
-                        multiline={true}
-                        maxRows={5}
-                        label="Ingredients"
-                        value={ingredients}
-                        onChange={handleIngredientsChange}
-                        error={errors.ingredients}
-                        helperText={errors.ingredients ? "Ingredients are required" : ""}
-                        fullWidth
-                    />
-                </form>
+                        <TextField
+                            name="description"
+                            multiline={true}
+                            maxRows={4}
+                            label="Description"
+                            value={description}
+                            onChange={handleDescriptionChange}
+                            error={errors.description}
+                            helperText={errors.description ? "Description is required" : ""}
+                            fullWidth
+                        />
 
-                <div className="flex justify-center mt-3 gap-4">
-                    <Link to="/">
-                        <Button variant="contained" sx={{ borderRadius: 4 }} className="h-12 w-fit" color="info">
-                            Cancel
+                        <TextField
+                            name="ingredients"
+                            multiline={true}
+                            maxRows={5}
+                            label="Ingredients"
+                            value={ingredients}
+                            onChange={handleIngredientsChange}
+                            error={errors.ingredients}
+                            helperText={errors.ingredients ? "Ingredients are required" : ""}
+                            fullWidth
+                        />
+                    </form>
+
+                    <div className="flex justify-center mt-3 gap-4">
+                        <Link to="/">
+                            <Button variant="contained" sx={{ borderRadius: 4 }} className="h-12 w-fit" color="error">
+                                Cancel
+                            </Button>
+                        </Link>
+                        <Button
+                            variant="contained"
+                            sx={{ borderRadius: 4 }}
+                            className="h-12 w-fit"
+                            color="success"
+                            onClick={handleUpdate}
+                        >
+                            Update
                         </Button>
-                    </Link>
-                    <Button
-                        variant="contained"
-                        sx={{ borderRadius: 4 }}
-                        className="h-12 w-fit"
-                        color="success"
-                        onClick={handleUpdate}
-                    >
-                        Update
-                    </Button>
+                    </div>
                 </div>
             </div>
         </div>

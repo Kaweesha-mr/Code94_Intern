@@ -38,7 +38,8 @@ const Home = () => {
                         borderRadius: '2rem',
                         boxShadow: 5,
                         marginTop: 1,
-                    }} color="primary">Add Recipe</Button>
+                    
+                    }} color="success">Add Recipe</Button>
                 </Link>
             </div>
 

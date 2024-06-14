@@ -31,7 +31,8 @@ export default function CardComp(props) {
     }
     return (
 
-        <Card sx={{
+        <Card
+        sx={{
             borderRadius: 5,
             minWidth: 275,
             boxShadow: 10,

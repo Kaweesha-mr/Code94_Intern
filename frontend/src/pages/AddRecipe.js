@@ -116,7 +116,7 @@ export default function AddRecipe() {
                         variant="contained"
                         sx={{ borderRadius: 4 }}
                         className="h-12 w-fit"
-                        color="info"
+                        color="error"
                         onClick={handleClear}
                     >
                         Clear
