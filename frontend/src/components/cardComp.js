@@ -26,7 +26,7 @@ export default function CardComp(props) {
 
 
     const handleDelete = () => {
-
+        console.log('delete');
         props.onDelete();
         handleClose();
     }

@@ -14,8 +14,8 @@ export const addRecipe = async (recipe) => {
     return response.data;
 };
 
-export const deleteRecipe = async (id) => {
-    await axios.delete(`${API_BASE_URL}/recipes/${id}`);
+export const deleteResp = async (id) => {
+    await axios.delete(`${API_BASE_URL}/${id}`);
 };
 
 export const updateRecipe = async (id, recipe) => {
