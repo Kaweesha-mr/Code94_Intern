@@ -9,20 +9,15 @@ export default function AddRecipe() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [ingredients, setIngredients] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
     const dispatch = useDispatch();
 
     const handleClear = () => {
         setTitle('');
         setDescription('');
         setIngredients('');
-        setErrorMessage(''); // Clear any existing error message
     };
 
     const handleAddRecipe = () => {
-
-
-        // If all fields are filled, proceed to add recipe
         const newRecipe = {
             title,
             description,

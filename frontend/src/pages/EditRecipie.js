@@ -6,11 +6,10 @@ import Textfield from '../components/TextField';
 import { updateRecipe } from '../redux/Actions/recipeActions';
 
 export default function UpdateRecipeForm() {
-    const { id } = useParams(); // Extracts id from URL params (/update-recipe/:id)
+    const { id } = useParams();
     const dispatch = useDispatch();
     const recipe = useSelector(state => state.recipes.find(recipe => recipe.id === id));
 
-    // Separate state for each form field
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [ingredients, setIngredients] = useState('');
@@ -47,10 +46,6 @@ export default function UpdateRecipeForm() {
         window.location.href = '/';
     };
 
-    // Ensure recipe exists before rendering the form
-    if (!recipe) {
-        return <div>Loading...</div>; // Placeholder for loading state
-    }
 
     return (
         <div className='md:flex m-4 md:m-3 md:absolute md:top-[25%] md:left-[40%] md:h-fit'>
