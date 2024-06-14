@@ -7,9 +7,9 @@ import { deleteRecipe, fetchRecipes } from '../redux/Actions/recipeActions';
 import { getRecipes } from '../service/recipeService';
 
 const Home = () => {
-    const recipes = useSelector(state => state.recipes); // Assuming state structure is { recipes: [] }
+    const recipes = useSelector(state => state.recipes);
     const dispatch = useDispatch();
-    const [loading, setLoading] = useState(true); // New loading state
+    const [loading, setLoading] = useState(true); //loading state
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,7 +19,7 @@ const Home = () => {
             } catch (error) {
                 console.error('Error fetching recipes:', error);
             } finally {
-                setLoading(false); // Set loading to false once data is fetched
+                setLoading(false);
             }
         };
 
@@ -27,7 +27,9 @@ const Home = () => {
     }, [dispatch]);
 
     return (
+
         <div>
+
             <div className="m-3 flex justify-between">
                 <h1 className="m-3 text-3xl font-semibold">Recipes</h1>
                 <Link to="/add-recipe">
@@ -41,7 +43,7 @@ const Home = () => {
             </div>
 
             {loading ? (
-                // Show skeletons while loading
+                //skeletons while loading
                 <div className="m-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                     {[...Array(6)].map((_, index) => (
                         <Box key={index} sx={{ width: 300 }}>
@@ -51,6 +53,7 @@ const Home = () => {
                     ))}
                 </div>
             ) : (
+                
                 // Show actual content when not loading
                 <div className=" h-fit m-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                     {recipes.map(item => (

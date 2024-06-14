@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+//connect to database
 const connectDB = async () => {
     try {
         await mongoose.connect("mongodb+srv://admin:admin@intern.tsezuqx.mongodb.net/intern?retryWrites=true&w=majority", {

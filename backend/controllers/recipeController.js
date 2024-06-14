@@ -1,5 +1,6 @@
 const recipeService = require('../services/recipeService');
 
+// Get all recipes
 const getAllRecipes = async (req, res) => {
     try {
         const recipes = await recipeService.getAllRecipes();
@@ -10,6 +11,7 @@ const getAllRecipes = async (req, res) => {
     }
 };
 
+// Get recipe by id
 const getRecipeById = async (req, res) => {
     try {
         const recipe = await recipeService.getRecipeById(req.params.id);
@@ -21,6 +23,7 @@ const getRecipeById = async (req, res) => {
     }
 };
 
+// Create a new recipe
 const createRecipe = async (req, res) => {
     try {
         const newRecipe = await recipeService.createRecipe(req.body);
@@ -30,6 +33,7 @@ const createRecipe = async (req, res) => {
     }
 };
 
+// Update a recipe
 const updateRecipe = async (req, res) => {
     try {
         const updatedRecipe = await recipeService.updateRecipe(req.params.id, req.body);
@@ -40,6 +44,7 @@ const updateRecipe = async (req, res) => {
     }
 };
 
+// Delete a recipe
 const deleteRecipe = async (req, res) => {
     try {
         const deletedRecipe = await recipeService.deleteRecipe(req.params.id);

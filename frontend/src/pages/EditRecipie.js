@@ -65,7 +65,8 @@ export default function UpdateRecipeForm() {
             ingredients: ingredients
         };
 
-        dispatch(updateRecipe(id, updatedRecipe)); // Dispatch action to update recipe details
+        dispatch(updateRecipe(id, updatedRecipe));
+       
         // Redirect to home page after updating recipe
         window.location.href = '/';
     };

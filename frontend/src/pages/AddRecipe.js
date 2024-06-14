@@ -1,11 +1,12 @@
 import { Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { useState } from "react";
 import { addRecipe } from "../redux/Actions/recipeActions";
 
 export default function AddRecipe() {
+
+    //useState to store the values of the input fields
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [ingredients, setIngredients] = useState('');
@@ -20,6 +21,8 @@ export default function AddRecipe() {
         setErrors({ title: false, description: false, ingredients: false });
     };
 
+
+    //function to handle the add recipe button
     const handleAddRecipe = () => {
         let hasErrors = false;
         const newErrors = { title: false, description: false, ingredients: false };

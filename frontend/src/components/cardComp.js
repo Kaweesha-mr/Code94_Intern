@@ -50,6 +50,7 @@ export default function CardComp(props) {
             <CardActions>
 
                 <React.Fragment >
+
                     <IconButton aria-label="delete" color="warning" onClick={handleClickOpen}>
                         <DeleteIcon />
                     </IconButton>
@@ -60,6 +61,7 @@ export default function CardComp(props) {
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description"
                     >
+
                         <DialogTitle id="alert-dialog-title">
                             {"Do you Want to Delete the Recipe?"}
                         </DialogTitle>
@@ -74,14 +76,18 @@ export default function CardComp(props) {
                             </Button>
                         </DialogActions>
                     </Dialog>
+
                 </React.Fragment>
 
 
                 <Link to={`/edit-recipe/${props.id}`}>
+
                     <IconButton aria-label="edit" color="primary">
                         <EditNoteOutlinedIcon />
                     </IconButton>
+
                 </Link>
+                
             </CardActions>
         </Card>
     );
