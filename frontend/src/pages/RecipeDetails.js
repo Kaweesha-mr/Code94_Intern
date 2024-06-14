@@ -33,7 +33,7 @@ export default function RecipeDetails() {
                     
                     <div className="flex flex-col items-center">
                         <h2 className="m-3 text-xl font-bold text-center">Description</h2>
-                        <p className='flex flex-wrap min-w-2'>{recipe.description}</p>
+                        <p className='flex  flex-wrap md:w-[40rem]'>{recipe.description}</p>
                     </div>
 
                     <div className="flex flex-col justify-center items-center">
@@ -45,7 +45,7 @@ export default function RecipeDetails() {
                         </ul>
                     </div>
 
-                    <div className="mt-10 flex justify-center gap-4">
+                    <div className="mt-5 flex justify-center gap-4">
                         <Link to="/">
                             <Button variant="contained" sx={{ borderRadius: 4 }} className="h-12 w-fit" color="success">
                                 Back to Recipes

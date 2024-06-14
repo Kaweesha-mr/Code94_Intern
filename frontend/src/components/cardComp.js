@@ -43,7 +43,7 @@ export default function CardComp(props) {
                     <div className='text-3xl font-semibold'>
                         {props.title}
                     </div>
-                    <div className='max-h-12 overflow-hidden'>
+                    <div className='max-h-12 text-slate-600 text-md color mt-5 overflow-hidden'>
                         {props.description}
                     </div>
                 </CardContent>

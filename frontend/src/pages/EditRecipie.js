@@ -74,8 +74,8 @@ export default function UpdateRecipeForm() {
     return (
         <div className="m-5 ">
 
-            <div className='md:flex m-4 md:m- md:absolute md:top-[25%] md:left-[40%] md:h-fit'>
-                <div className="flex flex-col bg-white p-5 rounded-xl ">
+            <div className='md:flex md:m- md:absolute md:top-[15%] md:left-[35%] md:h-fit'>
+                <div className="flex md:w-96 flex-col bg-white p-10 rounded-xl ">
                     
                     <h1 className="m-3 text-3xl font-bold text-center">Update Recipe</h1>
 

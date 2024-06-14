@@ -70,8 +70,8 @@ export default function AddRecipe() {
     };
 
     return (
-        <div className='md:flex m-4 md:m-3 md:absolute md:top-[25%] md:left-[40%] md:h-fit'>
-            <div className="flex flex-col bg-white p-5 rounded-xl">
+        <div className='  md:flex m-4  md:m-3 md:absolute md:top-[25%] md:left-[40%] md:h-fit'>
+            <div className="flex flex-col bg-white p-10 rounded-xl">
                 <h1 className="m-3 text-3xl font-semibold text-center">Add Recipe</h1>
 
                 <form className="flex gap-2 flex-col justify-items-center items-center" style={{ width: '100%' }}>
