@@ -26,8 +26,15 @@ const getRecipeById = async (req, res) => {
 // Create a new recipe
 const createRecipe = async (req, res) => {
     try {
+
+        if (!req.body.title || !req.body.description || !req.body.ingredients) {
+            return res.status(400).json({ msg: 'Please enter all fields' });
+        }
+        
         const newRecipe = await recipeService.createRecipe(req.body);
+
         res.json(newRecipe);
+
     } catch (error) {
         res.status(500).send('Server Error');
     }

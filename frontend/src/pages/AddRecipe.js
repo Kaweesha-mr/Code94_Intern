@@ -70,7 +70,7 @@ export default function AddRecipe() {
     };
 
     return (
-        <div className='  md:flex m-4  md:m-3 md:absolute md:top-[25%] md:left-[40%] md:h-fit'>
+        <div className='  md:flex m-4  md:m-3 md:absolute md:top-[15%] md:left-[35%] md:h-fit'>
             <div className="flex flex-col bg-white p-10 rounded-xl">
                 <h1 className="m-3 text-3xl font-semibold text-center">Add Recipe</h1>
 
@@ -109,6 +109,10 @@ export default function AddRecipe() {
                         helperText={errors.ingredients ? "Ingredients are required" : ""}
                         fullWidth
                     />
+
+                    <p className="text-slate-400 m-3">
+                        "Add ingredients in a comma separated list. <br/> For example: <br/> "1 cup of flour, 2 eggs, 1 cup of sugar"
+                    </p>
                 </form>
 
                 <div className="flex justify-center gap-4 mt-3">
