@@ -30,14 +30,14 @@ export default function RecipeDetails() {
     const ingredientsArray = recipe.ingredients.split(',').map(ingredient => ingredient.trim());
 
     return (
-        <div className="flex flex-col">
-            <div className="flex flex-col items-center">
-                <h2 className="m-3 text-2xl font-bold text-center">{recipe.name}</h2>
+        <div className='flex justify-center mt-9'>
+            <div className="flex flex-col bg-white p-12 rounded-xl">
+                <h2 className="m-3 text-4xl font-bold text-center">{recipe.title}</h2>
                 <div className="flex flex-col items-center">
-                <div className="flex flex-col items-center">
-                    <h2 className="m-3 text-2xl font-bold text-center">Description</h2>
-                    <p>{recipe.description}</p>
+                    <h2 className="m-3 text-xl font-bold text-center">Description</h2>
+                    <p className='flex flex-wrap min-w-2'>{recipe.description}</p>
                 </div>
+                <div className="flex flex-col justify-center items-center">
                     <h2 className="m-3 text-2xl font-bold text-center">Ingredients</h2>
                     <ul className="list-disc">
                         {ingredientsArray.map((ingredient, index) => (
@@ -45,13 +45,14 @@ export default function RecipeDetails() {
                         ))}
                     </ul>
                 </div>
-
-            </div>
-            <div className="mt-10 flex justify-center gap-4">
-                <Link to="/">
-                    <Button variant="contained" className="h-12 w-fit" color="info">Back to Recipes</Button>
-                </Link>
+                <div className="mt-10 flex justify-center gap-4">
+                    <Link to="/">
+                        <Button variant="contained" sx={{ borderRadius: 4 }} className="h-12 w-fit" color="info">
+                            Back to Recipes
+                        </Button>
+                    </Link>
+                </div>
             </div>
         </div>
-    )
+    );
 }

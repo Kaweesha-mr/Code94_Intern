@@ -26,7 +26,6 @@ const createRecipe = async (req, res) => {
         const newRecipe = await recipeService.createRecipe(req.body);
         res.json(newRecipe);
     } catch (error) {
-        logger.error(error);
         res.status(500).send('Server Error');
     }
 };

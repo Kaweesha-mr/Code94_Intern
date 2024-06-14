@@ -24,9 +24,15 @@ const Home = () => {
         <div>
 
             <div className="m-3 flex justify-between">
-                <h1 className="m-3 text-3xl font-bold">Recipes</h1>
+                <h1 className="m-3 text-3xl font-semibold">Recipes</h1>
                 <Link to="/add-recipe">
-                    <Button variant="contained" className="h-12" color="primary">Add Recipe</Button>
+                    <Button variant="contained" sx={{
+                        height: '3rem',
+                        borderRadius: '2rem',
+                        boxShadow: 5,
+                        marginTop: 1,
+                    
+                    }} color="primary">Add Recipe</Button>
                 </Link>
             </div>
 

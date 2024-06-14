@@ -42,7 +42,7 @@ export default function UpdateRecipeForm() {
             ingredients: ingredients
         };
 
-        dispatch(updateRecipe(id,updatedRecipe)); // Dispatch action to update recipe details
+        dispatch(updateRecipe(id, updatedRecipe)); // Dispatch action to update recipe details
         // Redirect to home page after updating recipe
         window.location.href = '/';
     };
@@ -53,48 +53,51 @@ export default function UpdateRecipeForm() {
     }
 
     return (
-        <div className="flex flex-col">
-            <h1 className="m-3 text-3xl font-bold text-center">Update Recipe</h1>
+        <div className='md:flex m-4 md:m-3 md:absolute md:top-[25%] md:left-[40%] md:h-fit'>
+            <div className="flex flex-col bg-white p-5 rounded-xl ">
+                <h1 className="m-3 text-3xl font-bold text-center">Update Recipe</h1>
 
-            <div className="flex flex-col justify-items-center items-center">
-                <Textfield
-                    name="title"
-                    label="Title"
-                    value={title}
-                    onChange={handleTitleChange}
-                />
-                <Textfield
-                    name="description"
-                    multiline={true}
-                    maxRows={4}
-                    label="Description"
-                    value={description}
-                    onChange={handleDescriptionChange}
-                />
-                <Textfield
-                    name="ingredients"
-                    multiline={true}
-                    maxRows={7}
-                    label="Ingredients"
-                    value={ingredients}
-                    onChange={handleIngredientsChange}
-                />
-            </div>
+                <form className="flex flex-col justify-items-center items-center">
+                    <Textfield
+                        name="title"
+                        label="Title"
+                        value={title}
+                        onChange={handleTitleChange}
+                    />
+                    <Textfield
+                        name="description"
+                        multiline={true}
+                        maxRows={4}
+                        label="Description"
+                        value={description}
+                        onChange={handleDescriptionChange}
+                    />
+                    <Textfield
+                        name="ingredients"
+                        multiline={true}
+                        maxRows={7}
+                        label="Ingredients"
+                        value={ingredients}
+                        onChange={handleIngredientsChange}
+                    />
+                </form>
 
-            <div className="flex justify-center gap-4">
-                <Link to="/">
-                    <Button variant="contained" className="h-12 w-fit" color="info">
-                        Cancel
+                <div className="flex justify-center gap-4">
+                    <Link to="/">
+                        <Button variant="contained" sx={{ borderRadius: 4 }} className="h-12 w-fit" color="info">
+                            Cancel
+                        </Button>
+                    </Link>
+                    <Button
+                        variant="contained"
+                        sx={{ borderRadius: 4 }}
+                        className="h-12 w-fit"
+                        color="success"
+                        onClick={handleUpdate}
+                    >
+                        Update
                     </Button>
-                </Link>
-                <Button
-                    variant="contained"
-                    className="h-12 w-fit"
-                    color="success"
-                    onClick={handleUpdate}
-                >
-                    Update
-                </Button>
+                </div>
             </div>
         </div>
     );

@@ -33,6 +33,10 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  const refreshPage = () => {
+    window.location.reload();
+  }
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -95,6 +99,14 @@ function ResponsiveAppBar() {
                 </MenuItem>
               ))}
 
+              <MenuItem key="Refresh" onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+                  <Link onClick={refreshPage}>
+                    Refresh
+                  </Link>
+                </Typography>
+              </MenuItem>
+
 
             </Menu>
           </Box>
@@ -129,6 +141,16 @@ function ResponsiveAppBar() {
                 {page}
               </Button>
             ))}
+            <Button
+              key="Refresh"
+              sx={{ my: 2, color: 'white', display: 'block' }}
+              component={Link}
+              to="/"
+              onClick={refreshPage}
+            >
+              Refresh
+            </Button>
+
           </Box>
         </Toolbar>
       </Container>

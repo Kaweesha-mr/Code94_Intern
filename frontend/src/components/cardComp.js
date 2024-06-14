@@ -31,15 +31,15 @@ export default function CardComp(props) {
     }
     return (
 
-        <Card  sx={{ 
+        <Card sx={{
             borderRadius: 5,
             minWidth: 275,
             boxShadow: 10,
             marginTop: 2,
-            }}>
+        }}>
             <Link to={`/recipe-details/${props.id}`}>
                 <CardContent className='cursor-pointer'>
-                    <div  className='text-3xl font-semibold'>
+                    <div className='text-3xl font-semibold'>
                         {props.title}
                     </div>
                     <div className='max-h-12 overflow-hidden'>
@@ -49,7 +49,7 @@ export default function CardComp(props) {
             </Link>
             <CardActions>
 
-                <React.Fragment>
+                <React.Fragment >
                     <IconButton aria-label="delete" color="warning" onClick={handleClickOpen}>
                         <DeleteIcon />
                     </IconButton>
@@ -64,8 +64,12 @@ export default function CardComp(props) {
                             {"Do you Want to Delete the Recipe?"}
                         </DialogTitle>
                         <DialogActions>
-                            <Button onClick={handleClose}>No</Button>
-                            <Button onClick={handleDelete} autoFocus>
+                            <Button sx={{
+                                borderRadius: 10,
+                            }} onClick={handleClose}>No</Button>
+                            <Button sx={{
+                                borderRadius: 10,
+                            }} onClick={handleDelete} autoFocus>
                                 Yes
                             </Button>
                         </DialogActions>
