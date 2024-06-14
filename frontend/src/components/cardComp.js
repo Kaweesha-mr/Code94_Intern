@@ -4,7 +4,6 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -32,18 +31,20 @@ export default function CardComp(props) {
     }
     return (
 
-        <Card sx={{ minWidth: 275 }}>
+        <Card  sx={{ 
+            borderRadius: 5,
+            minWidth: 275,
+            boxShadow: 10,
+            marginTop: 2,
+            }}>
             <Link to={`/recipe-details/${props.id}`}>
                 <CardContent className='cursor-pointer'>
-                    <Typography variant="h5" component="div">
+                    <div  className='text-3xl font-semibold'>
                         {props.title}
-                    </Typography>
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        {props.category}
-                    </Typography>
-                    <Typography variant="body2">
+                    </div>
+                    <div className='max-h-12 overflow-hidden'>
                         {props.description}
-                    </Typography>
+                    </div>
                 </CardContent>
             </Link>
             <CardActions>

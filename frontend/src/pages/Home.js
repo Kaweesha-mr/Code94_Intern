@@ -31,7 +31,7 @@ const Home = () => {
             </div>
 
 
-            <div className="m-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="m-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                 {recipes.map(item => (
                     <CardComp
                         key={item.id}
