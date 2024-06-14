@@ -1,24 +1,12 @@
-import { ADD_RECIPE, DELETE_RECIPE, UPDATE_RECIPE } from "../Actions/recipeActions";
+import { ADD_RECIPE, DELETE_RECIPE, UPDATE_RECIPE,FETCH_RECIPES } from "../Actions/recipeActions";
 
 const initialState = [
-    {
-        id: 1,
-        title: 'Chicken Curry',
-        description: 'This is a chicken curry recipe'
-    },
-    {
-        id: 2,
-        title: 'Chicken Biryani',
-        description: 'This is a chicken biryani recipe'
-    },
-    {
-        id: 3,
-        title: 'Chicken Fry',
-        description: 'This is a chicken fry recipe'
-    }
+    
 ];
 
 const recipeReducer = (state = initialState, action) => {
+
+    console.log(action.payload);
     switch (action.type) {
         case ADD_RECIPE:
             return [
@@ -31,6 +19,17 @@ const recipeReducer = (state = initialState, action) => {
             return state.map(recipe =>
                 recipe.id === action.payload.id ? action.payload : recipe
             );
+        case FETCH_RECIPES:
+            const newRecipes = action.payload.map(recipe => ({
+                id: recipe._id, // Use the MongoDB _id as the id
+                title: recipe.title,
+                description: recipe.description
+            }));
+
+            // Combine the received recipes with the existing initialState array
+            const mergedRecipes = [...state, ...newRecipes];
+            return mergedRecipes;
+    
         default:
             return state;
     }

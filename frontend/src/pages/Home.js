@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@mui/material';
 import CardComp from '../components/cardComp';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteRecipe } from '../redux/Actions/recipeActions';
+import { deleteRecipe, fetchRecipes } from '../redux/Actions/recipeActions';
+import { getRecipes } from '../service/recipeService';
 
 const Home = () => {
     const recipes = useSelector(state => state.recipes); // Assuming state structure is { recipes: [] }
     const dispatch = useDispatch();
     
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getRecipes();
+            dispatch(fetchRecipes(data)); // Dispatch action to update the store
+        };
+
+        fetchData();
+    }, [dispatch]);
+
     
     return (
         <div>

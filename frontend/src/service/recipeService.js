@@ -1,10 +1,11 @@
 // src/services/apiService.js
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3001/api/'; // Replace with your backend URL
+const API_BASE_URL = 'http://localhost:4000/api/recipes'; // Replace with your backend URL
 
 export const getRecipes = async () => {
-    const response = await axios.get(`${API_BASE_URL}/recipes`);
+    const response = await axios.get(`${API_BASE_URL}/`);
+    console.log(response.data);
     return response.data;
 };
 
