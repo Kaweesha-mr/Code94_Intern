@@ -1,35 +1,56 @@
 /* eslint-disable no-unused-vars */
-//genrate simple ui to show ingredients and steps of recie and name of the recipe
-
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { Button } from "@mui/material";
+import { getRecipbyId } from '../service/recipeService';
 
 export default function RecipeDetails() {
-    const { id } = useParams();
+    const { id } = useParams(); // Extract id from URL params
+    const [recipe, setRecipe] = useState(null); // State to hold recipe data
+
+    useEffect(() => {
+        const fetchRecipe = async () => {
+            try {
+                const data = await getRecipbyId(id); // Call your service function to fetch recipe by ID
+                setRecipe(data); // Update state with fetched recipe data
+            } catch (error) {
+                console.error('Error fetching recipe:', error);
+            }
+        };
+
+        fetchRecipe(); // Call fetchRecipe function when component mounts
+    }, [id]); // Dependency array ensures effect runs when id changes
+
+    // If recipe is null or undefined, display loading or error message
+    if (!recipe) {
+        return <div>Loading...</div>; // You can replace this with a loading spinner or message
+    }
+
+    // Split ingredients string into an array
+    const ingredientsArray = recipe.ingredients.split(',').map(ingredient => ingredient.trim());
+
     return (
-        <div className="flex flex-col ">
-            <h1 className="m-3 text-3xl font-bold text-center">Recipe Details</h1>
-            <div className=" flex flex-col justify-items-center items-center">
-                <h2 className="m-3 text-2xl font-bold text-center">Recipe Name</h2>
-                <div className="flex flex-col justify-items-center items-center">
+        <div className="flex flex-col">
+            <div className="flex flex-col items-center">
+                <h2 className="m-3 text-2xl font-bold text-center">{recipe.name}</h2>
+                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center">
+                    <h2 className="m-3 text-2xl font-bold text-center">Description</h2>
+                    <p>{recipe.description}</p>
+                </div>
                     <h2 className="m-3 text-2xl font-bold text-center">Ingredients</h2>
-                    <p>Ingredient 1</p>
-                    <p>Ingredient 2</p>
-                    <p>Ingredient 3</p>
-                    <p>Ingredient 4</p>
+                    <ul className="list-disc">
+                        {ingredientsArray.map((ingredient, index) => (
+                            <li key={index}>{ingredient}</li>
+                        ))}
+                    </ul>
                 </div>
-                <div className="flex flex-col justify-items-center items-center">
-                    <h2 className="m-3 text-2xl font-bold text-center">Steps</h2>
-                    <p>Step 1</p>
-                    <p>Step 2</p>
-                    <p>Step 3</p>
-                    <p>Step 4</p>
-                </div>
+
             </div>
-            <div className="flex justify-center gap-4">
-                <Button variant="contained" className="h-12 w-fit" color="info">Edit</Button>
-                <Button variant="contained" className="h-12 w-fit" color="error">Delete</Button>
+            <div className="mt-10 flex justify-center gap-4">
+                <Link to="/">
+                    <Button variant="contained" className="h-12 w-fit" color="info">Back to Recipes</Button>
+                </Link>
             </div>
         </div>
     )
