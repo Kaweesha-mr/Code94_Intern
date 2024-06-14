@@ -18,7 +18,8 @@ const recipeReducer = (state = initialState, action) => {
             return action.payload.map(recipe => ({
                 id: recipe._id, // Use the MongoDB _id as the id
                 title: recipe.title,
-                description: recipe.description
+                description: recipe.description,
+                ingredients: recipe.ingredients
             }));
         default:
             return state;
