@@ -1,4 +1,4 @@
-import { addResp, deleteResp } from "../../service/recipeService";
+import { addResp, deleteResp, updateRecip } from "../../service/recipeService";
 
 export const ADD_RECIPE = 'ADD_RECIPE';
 export const DELETE_RECIPE = 'DELETE_RECIPE';
@@ -30,10 +30,18 @@ export const deleteRecipe = (id) => async dispatch => {
     }
 }
 
-export const updateRecipe = (recipe) => {
-    return {
-        type: UPDATE_RECIPE,
-        payload: recipe
+export const updateRecipe = (id,recipe) => async dispatch => {
+    try {
+        await updateRecip(id,recipe);
+        dispatch({
+            type: UPDATE_RECIPE,
+            payload: recipe
+        });
+        dispatch(fetchRecipes());
+
+    }
+    catch (err) {
+        console.log(err);
     }
 }
 
