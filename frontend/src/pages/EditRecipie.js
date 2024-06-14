@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button } from '@mui/material';
-import Textfield from '../components/TextField';
+import { Button, TextField } from '@mui/material';
 import { updateRecipe } from '../redux/Actions/recipeActions';
 
 export default function UpdateRecipeForm() {
+
     const { id } = useParams();
     const dispatch = useDispatch();
     const recipe = useSelector(state => state.recipes.find(recipe => recipe.id === id));
@@ -13,6 +13,8 @@ export default function UpdateRecipeForm() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [ingredients, setIngredients] = useState('');
+
+    const [errors, setErrors] = useState({ title: false, description: false, ingredients: false });
 
     useEffect(() => {
         if (recipe) {
@@ -35,6 +37,28 @@ export default function UpdateRecipeForm() {
     };
 
     const handleUpdate = () => {
+        let hasErrors = false;
+        const newErrors = { title: false, description: false, ingredients: false };
+
+        if (!title) {
+            newErrors.title = true;
+            hasErrors = true;
+        }
+        if (!description) {
+            newErrors.description = true;
+            hasErrors = true;
+        }
+        if (!ingredients) {
+            newErrors.ingredients = true;
+            hasErrors = true;
+        }
+
+        setErrors(newErrors);
+
+        if (hasErrors) {
+            return;
+        }
+
         const updatedRecipe = {
             title: title,
             description: description,
@@ -46,34 +70,44 @@ export default function UpdateRecipeForm() {
         window.location.href = '/';
     };
 
-
     return (
-        <div className='md:flex m-4 md:m-3 md:absolute md:top-[25%] md:left-[40%] md:h-fit'>
+        <div className='md:flex m-4 md:m- md:absolute md:top-[25%] md:left-[40%] md:h-fit'>
             <div className="flex flex-col bg-white p-5 rounded-xl ">
                 <h1 className="m-3 text-3xl font-bold text-center">Update Recipe</h1>
 
-                <form className="flex flex-col justify-items-center items-center">
-                    <Textfield
+                <form className="flex flex-col gap-3 mt-3 justify-items-center items-center">
+                    <TextField
                         name="title"
                         label="Title"
                         value={title}
                         onChange={handleTitleChange}
+                        error={errors.title}
+                        helperText={errors.title ? "Title is required" : ""}
+                        fullWidth
                     />
-                    <Textfield
+
+                    <TextField
                         name="description"
                         multiline={true}
                         maxRows={4}
                         label="Description"
                         value={description}
                         onChange={handleDescriptionChange}
+                        error={errors.description}
+                        helperText={errors.description ? "Description is required" : ""}
+                        fullWidth
                     />
-                    <Textfield
+
+                    <TextField
                         name="ingredients"
                         multiline={true}
-                        maxRows={7}
+                        maxRows={5}
                         label="Ingredients"
                         value={ingredients}
                         onChange={handleIngredientsChange}
+                        error={errors.ingredients}
+                        helperText={errors.ingredients ? "Ingredients are required" : ""}
+                        fullWidth
                     />
                 </form>
 
