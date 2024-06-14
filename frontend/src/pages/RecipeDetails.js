@@ -24,7 +24,7 @@ export default function RecipeDetails() {
     const ingredientsArray = recipe ? recipe.ingredients.split(',').map(ingredient => ingredient.trim()) : [];
 
     return (
-        <div className='flex justify-center mt-9'>
+        <div className='flex justify-center mt-9 m-5'>
             {recipe ? (
 
                 <div className="flex flex-col m-3 md:m-0 bg-white p-12 rounded-xl">
@@ -47,7 +47,7 @@ export default function RecipeDetails() {
 
                     <div className="mt-10 flex justify-center gap-4">
                         <Link to="/">
-                            <Button variant="contained" sx={{ borderRadius: 4 }} className="h-12 w-fit" color="info">
+                            <Button variant="contained" sx={{ borderRadius: 4 }} className="h-12 w-fit" color="success">
                                 Back to Recipes
                             </Button>
                         </Link>
